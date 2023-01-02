@@ -1,0 +1,7 @@
+<h1>Welcome {{ username }}</h1>
+<app-accounts-dropdown [userPassed]="user" (onChange)="onChange($event)" accountN="{{ accountnumbers }}"></app-accounts-dropdown>
+<app-total-balance-component
+  balance="{{ balance }}$"
+></app-total-balance-component>
+<app-exchange-rate></app-exchange-rate>
+<!--put rates component here-->

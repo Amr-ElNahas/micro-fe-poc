@@ -1,0 +1,17 @@
+<b>Account numbers</b>
+<!-- <select> -->
+<!-- <option *ngFor="let accountnumber of accountnumbers" [value]="accountnumber"> -->
+
+<!-- </option> -->
+<!-- </select> -->
+<div class="dropdown">
+  <button class="dropbtn">Account Select</button>
+
+  <div class="dropdown-content">
+    <a
+      (click)="OnChange(accountnumber)"
+      *ngFor="let accountnumber of accountnumbers"
+      >{{ accountnumber }}
+    </a>
+  </div>
+</div>

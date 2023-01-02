@@ -1,0 +1,52 @@
+.example-container mat-form-field + mat-form-field {
+  margin-left: 8px;
+}
+
+.mat-mdc-form-field {
+  width: 300px;
+}
+
+.example-right-align {
+  text-align: right;
+}
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+  display: none;
+}
+
+input.example-right-align {
+  -moz-appearance: textfield;
+}
+
+#loginbtn {
+  background-color: green;
+
+  color: white;
+
+  margin: auto;
+}
+
+#loginbtn:disabled {
+  background-color: gray;
+
+  color: darkgray;
+}
+
+.container {
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  padding-bottom: 300px;
+
+  padding-top: 20%;
+}
+
+.btnDiv {
+  margin-top: 2%;
+
+  position: absolute;
+}

@@ -1,0 +1,75 @@
+pipeline {
+    parameters {
+      string(name: 'HOST', description: 'Ingress host', defaultValue: 'poc.inma.com')
+      choice(name: 'ENV', choices: ['test', 'dev', 'prod'], description: 'Angular environment')
+      choice(name: 'NAMESPACE', choices: ['axa-motors'], description: 'K8s Namespace')
+      choice(name: 'DOCKER_REGISTRY', choices: ['registry.sumerge.local'], description: 'Docker registry')
+    }
+    environment {
+      registry = "${DOCKER_REGISTRY}/${NAMESPACE}/"
+	  dockerImage = ''
+    }
+
+    agent {
+            kubernetes {
+                cloud 'kubernetes'
+                inheritFrom 'k8s-jnlp-npm14'
+            }
+        }
+
+    stages {
+
+ 	  stage('Build') {
+         steps {
+           dir('utility') {
+         sh 'npm cache clean --force'
+         sh 'rm -rf node_modules'
+           sh 'npm install'
+           sh 'npm run build'
+         }
+         }
+       }
+
+	  stage('Docker'){
+        stages {
+		  stage('Create Image') {
+        
+            steps {
+              dir('utility') {
+              script {
+sh 'sed -i "s|@DOCKER_REGISTRY@|${DOCKER_REGISTRY}|g" Dockerfile'
+                dockerImage = docker.build registry + "utility:$BUILD_NUMBER"
+              }
+            }
+        }
+          }
+
+          stage('Push Image') {
+            steps {
+              dir('utility') {
+              script {
+                docker.withRegistry( '' ) {
+                dockerImage.push()
+			  }
+            }
+              }
+          }
+        }
+	  }
+	}
+
+	stage ('K8s deploy') {
+      steps{
+        dir('utility') {
+        sh """
+        sed -i "s|@BUILD_NUMBER@|${BUILD_NUMBER}|g" $WORKSPACE/utility/kubernetes.yml
+        sed -i "s|@HOST@|${HOST}|g" $WORKSPACE/utility/kubernetes.yml
+        sed -i "s|@DOCKER_REGISTRY@|${DOCKER_REGISTRY}|g" $WORKSPACE/utility/kubernetes.yml
+        sed -i "s|@NAMESPACE@|${NAMESPACE}|g" $WORKSPACE/utility/kubernetes.yml
+        kubectl apply -f $WORKSPACE/utility/kubernetes.yml -n ${NAMESPACE}
+        """
+      }
+      }
+    }
+  }
+}
