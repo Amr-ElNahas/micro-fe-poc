@@ -55,7 +55,7 @@ Run `npm install` to install dependencies
 
 ### serve
 
-Run `npm run start` from the root directory to spin up the server. This will run the server the microfrontend on `http://localhost:8080/`. 
+Run `npm run start`  to spin up the server. This will run the server the microfrontend on `http://localhost:8080/`. 
 
 ### build
 
