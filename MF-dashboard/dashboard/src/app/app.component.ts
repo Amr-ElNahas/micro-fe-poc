@@ -1,34 +1,40 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { user$ } from '@SUMERGE/utility';
 import { Subscription } from 'rxjs';
-import { userReceived } from './app.service';
 import * as singleSpa from 'single-spa';
-import { accountNumber$ } from '@SUMERGE/utility';
+import { AuthenticationService } from '@coreServices/authentication.service';
+import { UtilityService } from '@coreServices/utility.service';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
+
 export class AppComponent implements OnInit {
   subscription!: Subscription;
   user!:any
+  constructor(private utilityService:UtilityService, private authenticationService:AuthenticationService){
+
+  }
   ngOnInit(): void {
-    this.subscription = user$.subscribe((data: any) => {
-      this.user=data.userData
-      userReceived.user = data.userData;
-      this.username = data.userData.username;
-      this.balance = data.userData.balance;
-      this.accountnumbers = data.userData.accountnumbers;
-      console.log(data.userData.accountnumbers);
-    });
+
+
+      this.user=this.utilityService.user
+
+
+      this.username = this.authenticationService.getUserName();
+      this.balance = this.utilityService.totalbalance;
+      this.accountNumbers = this.utilityService.accountnumber;
+
+
   }
   @Input() username = ' ';
   balance: number = 0;
-  accountnumbers: string[] = [];
+  accountNumbers: string[] = [];
 
   onChange(event:any){
-    accountNumber$.next(event);
+    this.utilityService.accountNumber$.next(event);
     singleSpa.navigateToUrl('/accountinfo');
   }
 }

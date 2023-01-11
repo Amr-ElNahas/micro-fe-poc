@@ -1,7 +1,10 @@
-<h1>Welcome {{ username }}</h1>
-<app-accounts-dropdown [userPassed]="user" (onChange)="onChange($event)" accountN="{{ accountnumbers }}"></app-accounts-dropdown>
-<app-total-balance-component
+<h1 class="header">Welcome {{ username }}</h1>
+<accounts-dropdown-component class="drppdown" [userPassed]="user" (onChange)="onChange($event)" accountNumberInput="{{ accountNumbers }}" id = "acccountsdropdown"></accounts-dropdown-component>
+<total-balance-component
+class="totalBalance"
+id = "totalBalance"
   balance="{{ balance }}$"
-></app-total-balance-component>
-<app-exchange-rate></app-exchange-rate>
-<!--put rates component here-->
+></total-balance-component>
+<exchange-rate-component class="exchangeRate" id = "exrate"></exchange-rate-component>
+
+

@@ -1,0 +1,4 @@
+{
+    "include": ["./src/**/*.ts","./projects/**/*.ts","./projects/**/**/*.ts"],
+    "exclude": ["./projects/test.ts", "./projects/**/*.spec.ts", "./src/**/**/*.spec.ts","./projects/**/**/*.spec.ts","./projects/**/*.spec.ts",]
+}

@@ -1,0 +1,16 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/spec",
+    "types": ["jasmine"],
+    "paths": {
+
+      "@SUMERGE/*": ["./src/app/services/@SUMERGE/*"],
+      "@store/*": ["./src/assets/store/*"],
+      "@loginServices/*":["./src/app/services/*"],
+      "@models/*":["./src/app/models/*"]
+    }
+  },
+  "include": ["**/*.spec.ts", "**/*.d.ts"]
+}

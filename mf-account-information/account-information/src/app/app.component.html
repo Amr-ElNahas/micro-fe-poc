@@ -1,0 +1,3 @@
+<account-information-component *ngIf="getRole()!='guest'" accountNumber="{{accountNumber}}" username="{{username}}" id="accountinfo"></account-information-component>
+<total-balance-component *ngIf="isEmployee()" balance="{{totalBalance}} $" id="totalbalance"></total-balance-component>
+<exchange-rate-component id="exrate"></exchange-rate-component>

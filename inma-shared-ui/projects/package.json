@@ -1,6 +1,10 @@
 {
   "name": "inma-shared-ui",
-  "version": "1.22.0",
+  "version": "1.25.0",
+  "scripts": {
+    "ng": "ng",
+    "test": "ng test"
+  },
   "peerDependencies": {
     "@angular/animations": "^15.0.0",
     "@angular/cdk": "^15.0.3",

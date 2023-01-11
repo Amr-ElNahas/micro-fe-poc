@@ -23,7 +23,7 @@ pipeline {
         stages {
 		  stage('Create Image') {
             steps {
-              dir('MF-dashboard/dashboard') {
+              dir('mf-dashboard/dashboard') {
               script {
 sh 'sed -i "s|@DOCKER_REGISTRY@|${DOCKER_REGISTRY}|g" Dockerfile'
                 dockerImage = docker.build registry + "dashboard:$BUILD_NUMBER"
@@ -34,7 +34,7 @@ sh 'sed -i "s|@DOCKER_REGISTRY@|${DOCKER_REGISTRY}|g" Dockerfile'
 
           stage('Push Image') {
             steps {
-              dir('MF-dashboard/dashboard') {
+              dir('mf-dashboard/dashboard') {
               script {
                 docker.withRegistry( '' ) {
                 dockerImage.push()
@@ -48,13 +48,13 @@ sh 'sed -i "s|@DOCKER_REGISTRY@|${DOCKER_REGISTRY}|g" Dockerfile'
 
 	stage ('K8s deploy') {
       steps{
-        dir('MF-dashboard/dashboard') {
+        dir('mf-dashboard/dashboard') {
         sh """
-        sed -i "s|@BUILD_NUMBER@|${BUILD_NUMBER}|g" $WORKSPACE/MF-dashboard/dashboard/kubernetes.yml
-        sed -i "s|@HOST@|${HOST}|g" $WORKSPACE/MF-dashboard/dashboard/kubernetes.yml
-        sed -i "s|@DOCKER_REGISTRY@|${DOCKER_REGISTRY}|g" $WORKSPACE/MF-dashboard/dashboard/kubernetes.yml
-        sed -i "s|@NAMESPACE@|${NAMESPACE}|g" $WORKSPACE/MF-dashboard/dashboard/kubernetes.yml
-        kubectl apply -f $WORKSPACE/MF-dashboard/dashboard/kubernetes.yml -n ${NAMESPACE}
+        sed -i "s|@BUILD_NUMBER@|${BUILD_NUMBER}|g" $WORKSPACE/mf-dashboard/dashboard/kubernetes.yml
+        sed -i "s|@HOST@|${HOST}|g" $WORKSPACE/mf-dashboard/dashboard/kubernetes.yml
+        sed -i "s|@DOCKER_REGISTRY@|${DOCKER_REGISTRY}|g" $WORKSPACE/mf-dashboard/dashboard/kubernetes.yml
+        sed -i "s|@NAMESPACE@|${NAMESPACE}|g" $WORKSPACE/mf-dashboard/dashboard/kubernetes.yml
+        kubectl apply -f $WORKSPACE/mf-dashboard/dashboard/kubernetes.yml -n ${NAMESPACE}
         """
         }
       }

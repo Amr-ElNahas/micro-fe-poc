@@ -36,13 +36,13 @@
       "imports": {
         "rxjs": "https://cdnjs.cloudflare.com/ajax/libs/rxjs/7.5.7/rxjs.umd.min.js",
         "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js",
-        "@SUMERGE/root-config": "//poc.inma.com/SUMERGE-root-config.js",
-        "@SUMERGE/utility": "//poc.inma.com/utility/SUMERGE-utility.js",
-        "@SUMERGE/login":"//poc.inma.com/login/main.js",
-        "@SUMERGE/dashboard":"//poc.inma.com/dashboard/main.js",
-        "@SUMERGE/accountinfo": "//poc.inma.com/accountinfo/main.js"
-
-        
+        "@SUMERGE/root-config": "//localhost:9000/SUMERGE-root-config.js",
+        "@SUMERGE/utility": "http://localhost:8080/SUMERGE-utility.js",
+        "@SUMERGE/login":"http://localhost:9001/main.js",
+        "@SUMERGE/test": "http://localhost:9002/main.js",
+        "@SUMERGE/vatInvoice": "http://localhost:9003/main.js",
+        "@SUMERGE/dashboard":"http://localhost:3000/main.js",
+        "@SUMERGE/accountinfo":"http://localhost:7300/main.js"        
       }
     }
   </script>
@@ -63,11 +63,13 @@
         "rxjs": "https://cdnjs.cloudflare.com/ajax/libs/rxjs/7.5.7/rxjs.umd.min.js",
         "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js",
         "@single-spa/welcome": "https://unpkg.com/single-spa-welcome/dist/single-spa-welcome.js",
-        "@SUMERGE/root-config": "//poc.inma.com/SUMERGE-root-config.js",
-        "@SUMERGE/utility": "//poc.inma.com/utility/SUMERGE-utility.js",
-        "@SUMERGE/login":"//poc.inma.com/login/main.js",
-        "@SUMERGE/dashboard":"//poc.inma.com/dashboard/main.js",
-        "@SUMERGE/accountinfo": "//poc.inma.com/accountinfo/main.js"
+        "@SUMERGE/root-config": "//localhost:9000/SUMERGE-root-config.js",
+        "@SUMERGE/utility": "http://localhost:8080/SUMERGE-utility.js",
+        "@SUMERGE/login":"http://localhost:9001/main.js",
+        "@SUMERGE/test": "http://localhost:9002/main.js",
+        "@SUMERGE/vatInvoice": "http://localhost:9003/main.js",
+        "@SUMERGE/dashboard":"http://localhost:3000/main.js",
+        "@SUMERGE/accountinfo":"http://localhost:7300/main.js"
       }
     }
     </script>

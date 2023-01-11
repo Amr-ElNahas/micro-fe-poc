@@ -1,0 +1,47 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>
+      <div class="header">
+        <h4>VAT Invoice</h4>
+        <button mat-button (click)="goBack()" id="goBackButton">
+          <mat-icon>arrow_back_ios</mat-icon>
+          Account Details
+        </button>
+      </div>
+    </mat-card-title>
+    <mat-card-subtitle>{{ longText }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-grid-list cols="3" rowHeight="100px">
+      <mat-grid-tile  id="invoiceTableHeader1"
+        *ngFor="let item of invoiceTableHeader1; let i = index"
+        [colspan]="1"
+        [rowspan]="1"
+      >
+        <mat-grid-tile-header>{{ item }} </mat-grid-tile-header>
+        <div class="tile-content" id="invoiceTableData1">
+          <p>{{ invoiceTableData1[i] }}</p>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+    <div class="Description">
+      <H4>Description</H4>
+      <p>OUTGOING TRANSFER (SWIFT) from AE AED1500.00</p>
+      <p>Rate 1.0479315</p>
+      <p>Commission SAR50.00</p>
+      <p>Value date {{ todayDate | date }}</p>
+    </div>
+    <mat-grid-list cols="6" rowHeight="100px">
+      <mat-grid-tile id="invoiceTableHeader2"
+        *ngFor="let item of invoiceTableHeader2; let i = index"
+        [colspan]="1"
+        [rowspan]="1"
+      >
+        <mat-grid-tile-header>{{ item }}</mat-grid-tile-header>
+        <div class="tile-content" id="invoiceTableData2">
+          <p>{{ invoiceTableData2[i] }}</p>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-card-content>
+</mat-card>

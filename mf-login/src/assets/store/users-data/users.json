@@ -1,0 +1,29 @@
+[
+    {
+      "username": "Ahmed",
+  
+      "email": "user1@gmail.com",
+  
+      "password": "123456",
+  
+      "role": "employee",
+  
+      "balance": 190000.5,
+  
+      "accountnumbers": ["64684", "617786"]
+    },
+  
+    {
+      "username": "Amr",
+  
+      "email": "user2@gmail.com",
+  
+      "password": "654321",
+  
+      "role": "supervisor",
+  
+      "balance": 32000.0,
+  
+      "accountnumbers": ["62334", "617710"]
+    }
+  ]  

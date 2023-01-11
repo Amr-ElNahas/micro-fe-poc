@@ -1,2 +1,2 @@
-export * from "./accounts-dropdown/accounts-dropdown.module";
-export * from "./accounts-dropdown/accounts-dropdown.component";
+export * from "./accounts-dropdown-component/accounts-dropdown.module";
+export * from "./accounts-dropdown-component/accounts-dropdown.component";

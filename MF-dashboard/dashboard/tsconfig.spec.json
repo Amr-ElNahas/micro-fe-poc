@@ -3,7 +3,13 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/spec",
-    "types": ["jasmine"]
+    "types": ["jasmine"],
+    "paths": {
+
+      "@SUMERGE/*": ["src/app/services/@SUMERGE/*"],
+      "@coreServices/*":["./src/app/services/*"],
+      "@models/*":["./src/app/models/*"]
+    }
   },
   "include": ["src/**/*.spec.ts", "src/**/*.d.ts"]
 }
