@@ -8,9 +8,8 @@ describe('SharedUtilsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SharedUtilsComponent ]
-    })
-    .compileComponents();
+      declarations: [SharedUtilsComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

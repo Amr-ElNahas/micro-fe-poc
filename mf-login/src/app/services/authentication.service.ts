@@ -1,23 +1,24 @@
-﻿import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {BehaviorSubject, Observable} from 'rxjs';
-import {Router} from '@angular/router';
+﻿import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { Router } from '@angular/router';
 import { User } from '@models/user.model';
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class AuthenticationService {
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
 
   constructor() {
-    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')!));
+    this.currentUserSubject = new BehaviorSubject<User>(
+      JSON.parse(localStorage.getItem('currentUser')!)
+    );
     this.currentUser = this.currentUserSubject.asObservable();
   }
 
   public get currentUserValue(): User {
     return this.currentUserSubject.value;
   }
-
 
   isAuthenticated() {
     if (this.currentUserValue) {
@@ -32,18 +33,18 @@ export class AuthenticationService {
     return result;
   }
 
-  public isSuperVisor(){
-    return this.currentUserValue.role==="supervisor"
+  public isSuperVisor() {
+    return this.currentUserValue.role === 'supervisor';
   }
 
-  public isEmployee(){
-    return this.currentUserValue.role==="employee"
+  public isEmployee() {
+    return this.currentUserValue.role === 'employee';
   }
-  public getRole(){
+  public getRole() {
     return this.currentUserValue.role;
   }
 
-  login(user:User){
-    localStorage.setItem('currentUser',JSON.stringify(user))
+  login(user: User) {
+    localStorage.setItem('currentUser', JSON.stringify(user));
   }
 }

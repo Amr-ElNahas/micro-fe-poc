@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+(cd mf-login && npm run nowatchtest && npm run lint  )
+(cd mf-dashboard/dashboard &&npm run nowatchtest && npm run lint )
+(cd mf-account-information/account-information&&npm run nowatchtest && npm run lint)
+(cd inma-shared-ui &&npm run nowatchtest&& npm run lint  || exit 1)

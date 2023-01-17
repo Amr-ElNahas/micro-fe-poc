@@ -37,7 +37,10 @@ export class LoginComponent implements OnDestroy {
   isAuth = false;
   hide = true;
 
-  constructor(private loginService: LoginService, private authenticationService:AuthenticationService) {}
+  constructor(
+    private loginService: LoginService,
+    private authenticationService: AuthenticationService
+  ) {}
   ngOnDestroy(): void {
     this.loginService.unsubscribe();
   }
@@ -50,21 +53,25 @@ export class LoginComponent implements OnDestroy {
   }
 
   login() {
-    var user = this.usersList.find(
-      (user) =>
+    const user = this.usersList.find(
+      user =>
         user.email == this.Email.value && user.password == this.Password.value
     );
     if (user) {
       this.userPassed = user;
       delete this.userPassed.password;
       this.authenticationService.login({
-        isAuthenticated:true,
-        username:user.username,
-        role:user.role
-      })
+        isAuthenticated: true,
+        username: user.username,
+        role: user.role,
+      });
       this.loginService.user$.next({ userData: this.userPassed });
       this.isAuth = true;
       singleSpa.navigateToUrl(this.appRoute);
     }
+  }
+
+  asset(url: string) {
+    return window.location.origin + '/assets/' + url;
   }
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { accountNumber$ } from '@SUMERGE/utility';
 import { Subscription } from 'rxjs';
-import {UtilityService} from "@coreServices/utility.service"
+import { UtilityService } from '@coreServices/utility.service';
 import { AuthenticationService } from '@coreServices/authentication.service';
 
 @Component({
@@ -10,28 +10,27 @@ import { AuthenticationService } from '@coreServices/authentication.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  constructor(private utilityService: UtilityService,private authenticationService:AuthenticationService) {}
-  username:string=""
+  constructor(
+    private utilityService: UtilityService,
+    private authenticationService: AuthenticationService
+  ) {}
+  username: string = '';
 
-  accountNumber:string=""
-  totalBalance:Number=0;
+  accountNumber: string = '';
+  totalBalance: Number = 0;
 
   subscription!: Subscription;
   ngOnInit(): void {
-
-
-
-    this.username=this.authenticationService.getUserName()
-    this.accountNumber=this.utilityService["accountNumber"]
-    this.totalBalance=this.utilityService["totalBalance"]
-
+    this.username = this.authenticationService.getUserName();
+    this.accountNumber = this.utilityService['accountNumber'];
+    this.totalBalance = this.utilityService['totalBalance'];
   }
   title = 'Account-information';
 
-  getRole(){
-    return this.authenticationService.getRole()
+  getRole() {
+    return this.authenticationService.getRole();
   }
-  isEmployee(){
-    return this.authenticationService.isEmployee()
+  isEmployee() {
+    return this.authenticationService.isEmployee();
   }
 }

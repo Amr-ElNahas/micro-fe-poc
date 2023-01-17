@@ -1,12 +1,9 @@
-import {
-  ComponentFixture,
-  TestBed,
-} from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import usersData from '@store/users-data/users.json';
 import { LoginComponent } from './login.component';
 import { By } from '@angular/platform-browser';
-import { ValidationErrors} from '@angular/forms';
+import { ValidationErrors } from '@angular/forms';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;

@@ -19,9 +19,9 @@ export class AccountsDropdownComponent implements OnInit {
   }
   accountNumbers: string[] = [];
   @Input() accountNumberInput: string = '';
-  @Output() onChange: EventEmitter<any>= new EventEmitter()
+  @Output() onChange: EventEmitter<any> = new EventEmitter();
   OnChange = (accountNumber: string) => {
     this.userPassed.accountNumber = accountNumber;
-    this.onChange.next({ accountNumber: this.userPassed })
+    this.onChange.next({ accountNumber: this.userPassed });
   };
 }

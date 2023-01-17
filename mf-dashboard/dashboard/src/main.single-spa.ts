@@ -14,7 +14,7 @@ import 'zone.js/dist/zone';
 import { singleSpaPropsSubject } from './single-spa/single-spa-props';
 
 const lifecycles = singleSpaAngular({
-  bootstrapFunction: (singleSpaProps) => {
+  bootstrapFunction: singleSpaProps => {
     singleSpaPropsSubject.next(singleSpaProps);
     return platformBrowserDynamic(getSingleSpaExtraProviders()).bootstrapModule(
       AppModule

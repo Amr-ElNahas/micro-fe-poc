@@ -24,15 +24,17 @@ describe('TotalBalanceComponentComponent', () => {
 
   describe('TotalBalanceComponentComponent', () => {
     it('user balance is visible', () => {
-    expect(fixture.debugElement.query(By.css('#userBalance'))).toBeDefined();
-  });
+      expect(fixture.debugElement.query(By.css('#userBalance'))).toBeDefined();
+    });
   });
 
   describe('TotalBalanceComponentComponent', () => {
     it('user balance text is correctly displayed', () => {
       const hTMLElements: HTMLElement = fixture.nativeElement;
-    const currencyButton = hTMLElements.querySelector('#userBalance')!;
-    expect(currencyButton.textContent).toEqual("Your balance is : "+ component.balance.toString());
-  });
+      const currencyButton = hTMLElements.querySelector('#userBalance')!;
+      expect(currencyButton.textContent).toEqual(
+        'Your balance is : ' + component.balance.toString()
+      );
+    });
   });
 });

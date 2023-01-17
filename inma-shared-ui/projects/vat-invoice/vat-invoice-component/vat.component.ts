@@ -3,14 +3,12 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'vat-component',
   templateUrl: './vat.component.html',
-  styleUrls: ['./vat.component.css']
+  styleUrls: ['./vat.component.css'],
 })
 export class VatComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   title = 'VAT-Invoice-mf';
   longText = 'this page allows you review the information below.';
@@ -50,5 +48,4 @@ export class VatComponent implements OnInit {
   goBack() {
     alert('Account Details button');
   }
-
 }

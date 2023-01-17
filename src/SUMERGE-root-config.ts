@@ -6,6 +6,7 @@ import {
 } from "single-spa-layout";
 import microfrontendLayout from "./microfrontend-layout.html";
 import "./styles.css";
+const images = importAll(require.context('./assets/images', false, /\.(png|jpe?g|svg)$/));
 
 const routes = constructRoutes(microfrontendLayout);
 const applications = constructApplications({
@@ -21,3 +22,10 @@ layoutEngine.activate();
 start({
   urlRerouteOnly: true,
 });
+function importAll(r) {
+  let images = {};
+  r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
+  return images;
+}
+
+

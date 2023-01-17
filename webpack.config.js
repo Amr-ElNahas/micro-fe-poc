@@ -23,5 +23,22 @@ module.exports = (webpackConfigEnv, argv) => {
         },
       }),
     ],
+    module: {
+      rules: [
+        {
+          test: /\.(png|jpe?g|gif|svg)$/i,
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                name: '/assets/images/[name].[ext]'
+              }
+            },
+          ],
+          dependency: { not: ['url'] }
+        },
+        
+      ]
+    },
   });
 };

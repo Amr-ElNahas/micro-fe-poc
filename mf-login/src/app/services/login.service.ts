@@ -14,7 +14,7 @@ export class LoginService {
       console.log(data);
     });
   }
-  unsubscribe (){
+  unsubscribe() {
     this.subscription.unsubscribe();
   }
 }

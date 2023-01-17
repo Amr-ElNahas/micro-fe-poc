@@ -8,7 +8,7 @@ describe('SharedUtilsService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports:[BrowserDynamicTestingModule]
+      imports: [BrowserDynamicTestingModule],
     });
     service = TestBed.inject(SharedUtilsService);
   });

@@ -23,14 +23,16 @@ describe('ExchangeRateComponent', () => {
 
   describe('ExchangeRateComponent', () => {
     it('currency button is visible', () => {
-    expect(fixture.debugElement.query(By.css('#currencyButton'))).toBeDefined();
-  });
+      expect(
+        fixture.debugElement.query(By.css('#currencyButton'))
+      ).toBeDefined();
+    });
   });
   describe('ExchangeRateComponent', () => {
     it('currency button text is shown correctly', () => {
       const hTMLElements: HTMLElement = fixture.nativeElement;
-    const currencyButton = hTMLElements.querySelector('#currencyButton')!;
-    expect(currencyButton.textContent).toEqual(component.currency.toString());
-  });
+      const currencyButton = hTMLElements.querySelector('#currencyButton')!;
+      expect(currencyButton.textContent).toEqual(component.currency.toString());
+    });
   });
 });

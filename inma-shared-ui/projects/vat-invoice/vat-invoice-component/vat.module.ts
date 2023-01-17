@@ -1,6 +1,6 @@
-import { CommonModule } from "@angular/common";
-import { NgModule } from "@angular/core";
-import { VatComponent } from "./vat.component";
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { VatComponent } from './vat.component';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
@@ -22,6 +22,6 @@ import { MatTableModule } from '@angular/material/table';
     MatGridListModule,
     MatTableModule,
   ],
-    exports:[VatComponent,CommonModule],
+  exports: [VatComponent, CommonModule],
 })
-export class VatModule { }
+export class VatModule {}
